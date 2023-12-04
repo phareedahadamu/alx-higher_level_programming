@@ -5,9 +5,9 @@ def print_matrix_integer(matrix=[[]]):
     else:
         for i in matrix:
             idx = 0
-            for j in i:
-                print("{:d}".format(j), end="")
+            while idx < len(i):
+                print("{:d}".format(i[idx]), end="")
                 if idx < len(i) - 1:
                     print(" ", end="")
-            idx += 1
+                idx += 1
             print()
