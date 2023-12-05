@@ -1,6 +1,33 @@
 #include "lists.h"
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
+/**
+ * add_nodeint - A function that adds a new node at the start of the list
+ * @head: A pointer to the head pointer
+ * @n: The integer at athe the new node
+ * Return: The address of the new node on success else NULL
+ */
+
+listint_t *add_nodeint(listint_t **head, const int n)
+{
+	listint_t *new_node;
+
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = n;
+	if (*head == NULL)
+	{
+		*head = new_node;
+	}
+	else
+	{
+		new_node->next = *head;
+		*head = new_node;
+	}
+	return (*head);
+}
 /**
  * is_palindrome - A function that checks if the numbers in
  *                 a singly linked list is a palindrome
@@ -9,33 +36,21 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp = *head, *tmp1 = *head;
-	int count = 0, j = 0;
+	listint_t *head2 = NULL, *tmp = *head, *tmp2 = *head;
 
-	if (*head == NULL)
-		return (1);
 	while (tmp->next != NULL)
 	{
-		count++;
+		add_nodeint(&head2, tmp->n);
 		tmp = tmp->next;
 	}
-	count++;
-	int arr[count];
-
-	while (j < count && tmp1 != NULL)
+	add_nodeint(&head2, tmp->n);
+	while (head2 != NULL && tmp2 != NULL)
 	{
-		arr[j] = tmp1->n;
-		j++;
-		tmp1 = tmp1->next;
-	}
-	int i = 0;
-
-	while (i < count)
-	{
-		if (arr[i] != arr[count - 1])
+		if (head2->n != tmp2->n)
 			return (0);
-		count -= 1;
-		i += 1;
+		head2 = head2->next;
+		tmp2 = tmp2->next;
 	}
+	free_listint(head2);
 	return (1);
 }
