@@ -38,6 +38,8 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *head2 = NULL, *tmp = *head, *tmp2 = *head;
 
+	if (*head == NULL)
+		return (1);
 	while (tmp->next != NULL)
 	{
 		add_nodeint(&head2, tmp->n);
