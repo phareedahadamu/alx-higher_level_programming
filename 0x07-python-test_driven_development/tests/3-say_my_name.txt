@@ -1,0 +1,21 @@
+========================
+This module defines a function that prints a function that prints My name is <first name> <last name>
+=======================
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name('Farida', 'Adamu')
+My name is Farida Adamu
+
+>>> say_my_name(['hi'], 'Adamu')
+Traceback (most recent call last):
+        ...
+TypeError: first_name must be a string
+
+>>> say_my_name('Farida', 93)
+Traceback (most recent call last):
+        ...
+TypeError: last_name must be a string
+
+>>> say_my_name('Farida')
+My name is Farida 
