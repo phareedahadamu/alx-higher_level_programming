@@ -16,6 +16,8 @@ class TestMaxInteger(unittest.TestCase):
         self.assertAlmostEqual(max_integer([1, 4, 3, 4]), 4)
         #with empty list
         self.assertAlmostEqual(max_integer(), None)
+        #list with one element only
+        self.assertAlmostEqual(max_integer([3]), 3)
 
     def test_errors(self):
         #int passed as arg instead of list
