@@ -17,7 +17,7 @@ decimal places"""
                         "integers/floats")
     if not (all(len(sublist) == len(matrix[0]) for sublist in matrix)):
         raise TypeError("Each row of the matrix must have the same size")
-    if not(isinstance(div, int) or isinstance(div, float)):
+    if not (isinstance(div, int) or isinstance(div, float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
