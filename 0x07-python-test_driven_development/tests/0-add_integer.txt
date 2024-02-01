@@ -33,3 +33,13 @@ TypeError: b must be an integer
 
 >>> add_integer(2)
 100
+
+>>> add_integer(4, float('nan'))
+Traceback (most recent call last):
+        ...
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(4, float('inf'))
+Traceback (most recent call last):
+        ...
+OverflowError: cannot convert float infinity to integer
