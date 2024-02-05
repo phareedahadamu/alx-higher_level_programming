@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Defines the class MyList"""
+
+
 class MyList(list):
     """
     A sub class of list
