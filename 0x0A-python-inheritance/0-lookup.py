@@ -8,4 +8,7 @@ and methods of an object
 
 
 def lookup(obj):
+    """ obj : The object whose attributes are to be retrieved
+        Returns a list of the attributes"""
+
     return (dir(obj))
