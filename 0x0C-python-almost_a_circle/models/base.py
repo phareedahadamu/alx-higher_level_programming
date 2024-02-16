@@ -41,3 +41,13 @@ class Base:
     def from_json_string(json_string):
         """returns the list of the JSON string representation json_string"""
         return [] if json_string is None else json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ returns an instance with all attributes already set"""
+        if cls.__name__ == 'Rectangle':
+            subclass = cls(3, 5, 0, 0, 1)
+        elif cls.__name__ == 'Square':
+            subclass = cls(3, 0, 0, 1)
+        subclass.update(**dictionary)
+        return subclass
