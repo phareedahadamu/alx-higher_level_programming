@@ -61,7 +61,7 @@ class Base:
         if not os.path.exists(filename):
             return []
         with open(filename, 'r') as f:
-            list_dict = json.load(f)
+            list_dict = Base.from_json_string(f.read())
         list_objs = []
         for i in list_dict:
             list_objs.append(cls.create(**i))
