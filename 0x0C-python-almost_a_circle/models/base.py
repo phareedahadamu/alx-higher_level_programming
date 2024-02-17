@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Defines a class Base"""
 import json
+import os
 
 
 class Base:
@@ -49,5 +50,19 @@ class Base:
             subclass = cls(3, 5, 0, 0, 1)
         elif cls.__name__ == 'Square':
             subclass = cls(3, 0, 0, 1)
+        Base.__nb_objects += 1
         subclass.update(**dictionary)
         return subclass
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        filename = cls.__name__ + ".json"
+        if not os.path.exists(filename):
+            return []
+        with open(filename, 'r') as f:
+            list_dict = json.load(f)
+        list_objs = []
+        for i in list_dict:
+            list_objs.append(cls.create(**i))
+        return list_objs
