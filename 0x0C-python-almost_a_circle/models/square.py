@@ -50,6 +50,7 @@ class Square(Rectangle):
                         self.y = value
                     elif key == 'id':
                         self.id = value
+        self.__init__(self.size, self.x, self.y, self.id)
 
     def to_dictionary(self):
         """ returns the dict representation of Rectangle"""
